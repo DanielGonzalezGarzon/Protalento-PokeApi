@@ -1,5 +1,4 @@
-
-let globalPokemon;
+let globalPokemon = [];
 
 async function getPokemons() {
   try {
@@ -8,11 +7,12 @@ async function getPokemons() {
     console.log(responseJson);
     const pokemons = responseJson.results;
     console.log(pokemons);
-    document.write(pokemons);
+    
 
     for (let i = 0; i < pokemons.length; i++) {
+      const pokemon = pokemons [i];
       const pokemonUrl = pokemons[i].url;
-      const response = await fetch(pokemonUrl);
+      const response = await fetch(pokemonUrl); 
       const responseJson = await response.json();
       normalPokemons(pokemon.name, responseJson);
     }
@@ -23,15 +23,30 @@ async function getPokemons() {
 
 getPokemons();
 
-const normalPokemons = (name, img) => {
-  const img = responseJson.sprites.other['official-artwork'].front_default;
+const normalPokemons = (name, responseJson) => {
+  const img = responseJson.sprites.other["official-artwork"].front_default;
   const pokemon = {
     name: name,
-    img: img
+    img: img,
   };
+  console.log(pokemon);
+  
   globalPokemon.push(pokemon);
+};
 
+const renderPokemonCard = (element) =>{
+  const CardPokemonDiv = document.createElement('div');
+  CardPokemonDiv.classList = 'card';
+  CardPokemonDiv.innerHTML = `
+  <h2>${element.name}</h2>
+  <img src='${element.img}'/>`;
+  mainContainer.appendChid(CardPokemonDiv);
 }
 
+const renderPokemons = () =>{
+  for (let i = 0; i < globalPokemon.length; i++) {
+    renderPokemonCard (globalPokemon[i]);
+    
+  }
+}
 
-/* Se esta consultando como consumir la API en un primer momento, para traer la info que se requiere, postarior se buscara mostrarla  */
