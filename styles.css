@@ -14,15 +14,30 @@ form{
     place-content: center;
 }
 img{
-    width: 200px;
+    width: 9rem;
+}
+.title{
+    display: grid;
+    justify-content: center;
+    border: solid palegreen;
 }
 .main-container{
+    min-height: 100vh;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);    
+    grid-template-columns: repeat(3, 1fr);
+    border: solid rebeccapurple;    
 }
 
 .card{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
+    text-align: center;
+    border-radius: 2rem;
+    width: 350px;
+    height: auto;
+    padding: 1rem;
+    background-color: rgb(22, 221, 221);
+
 }
