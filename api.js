@@ -34,16 +34,15 @@ async function getPokemons() {
 const normalPokemons = (name, responseJson) => {
   //Es el path que tengo que seguir para encontrar la URL de la imagen de cada pokemon
   const img = responseJson.sprites.other["official-artwork"].front_default;
-  console.log(img);
   const pokemon = {
     name: name,
     img: img,
   };
-  console.log(pokemon);
+  //console.log(pokemon);
   //Agrego cada uno de los pokemons a mi arreglo
   globalPokemon.push(pokemon);
+  console.log(globalPokemon);
 };
-
 
 const renderPokemonCard = (element) => {
   const cardPokemonDiv = document.createElement("div");
@@ -71,6 +70,6 @@ async function main(){
 main();
 
 // 1:28:43 Buscando el error para que funcione
-// -- console.log(main);
+
 
 
