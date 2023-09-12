@@ -42,7 +42,7 @@ const renderPokemonCard = (element) =>{
   <img src='${element.img}'/>`;
   mainContainer.appendChid(CardPokemonDiv);
 }
-
+/* Video 1:24:00 */
 const renderPokemons = () =>{
   for (let i = 0; i < globalPokemon.length; i++) {
     renderPokemonCard (globalPokemon[i]);
